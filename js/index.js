@@ -36,3 +36,12 @@ busImg.addEventListener('dblclick', () => {
   mainPage.style.backgroundColor = "";
   bgChanged = false;
 });
+
+// Yells at you when you drag an image
+// const annoy = alert('Hey! Put me down!!!');
+const images = document.querySelectorAll('img');
+images.forEach((image) => {
+  image.addEventListener('drag', () => {
+    alert('Hey! Put me down!!!')
+  });
+});
