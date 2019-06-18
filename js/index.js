@@ -38,10 +38,26 @@ busImg.addEventListener('dblclick', () => {
 });
 
 // Yells at you when you drag an image
-// const annoy = alert('Hey! Put me down!!!');
 const images = document.querySelectorAll('img');
 images.forEach((image) => {
   image.addEventListener('drag', () => {
     alert('Hey! Put me down!!!')
   });
+});
+
+// changes background color on keydown, resets it on keyup
+let h2 = document.querySelector('.intro h2');
+let h2Content = document.querySelector('.intro h2').textContent;
+window.addEventListener('keydown', () => {
+  let r = Math.floor(Math.random() * 256);
+  let g = Math.floor(Math.random() * 256);
+  let b = Math.floor(Math.random() * 256);
+  mainPage.style.backgroundColor = ('rgb(' + r + ',' + g + ',' + b + ')');
+  h2.textContent = "RAINBOWS!!!";
+  h2.style.fontSize = "6rem"
+});
+window.addEventListener('keyup', () => {
+  mainPage.style.backgroundColor = "";
+  h2.textContent = h2Content;
+  h2.style.fontSize = "4rem"
 });
