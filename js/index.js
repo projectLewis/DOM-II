@@ -45,7 +45,7 @@ images.forEach((image) => {
   });
 });
 
-// changes background color on keydown, resets it on keyup
+// randomly changes background color on keydown, resets it on keyup
 let h2 = document.querySelector('.intro h2');
 let h2Content = document.querySelector('.intro h2').textContent;
 window.addEventListener('keydown', () => {
@@ -60,4 +60,20 @@ window.addEventListener('keyup', () => {
   mainPage.style.backgroundColor = "";
   h2.textContent = h2Content;
   h2.style.fontSize = "4rem"
+});
+
+// changes font color on mouseenter & mouse leave
+const paragraphText = document.querySelectorAll('p');
+paragraphText.forEach((text) => {
+  text.addEventListener('mouseenter', (e) => {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    e.target.style.color = ('rgb(' + r + ',' + g + ',' + b + ')');
+  });
+});
+paragraphText.forEach((text) => {
+  text.addEventListener('mouseleave', (e) => {
+    e.target.style.color = 'black'
+  });
 });
