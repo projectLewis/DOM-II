@@ -2,20 +2,32 @@
 
 // main page selector
 const mainPage = document.querySelector('body');
+// navbar selector
+const navbar = document.querySelector('.main-navigation');
+navbar.addEventListener('mouseover', () => {
+  navbar.style.backgroundColor = 'yellow';
+});
+navbar.addEventListener('mouseout', (e) => {
+  navbar.style.backgroundColor = 'white';
+
+});
 
 // changes background color of header logo
 const h1Logo = document.querySelector('.logo-heading');
 h1Logo.addEventListener('mouseover', (e) => {
-  e.target.style.backgroundColor = 'purple';
+  navbar.style.backgroundColor = 'purple';
+  e.stopPropagation();
 });
 h1Logo.addEventListener('mouseout', (e) => {
-  e.target.style.backgroundColor = 'white';
+  navbar.style.backgroundColor = 'white';
+  e.stopPropagation();
 });
 
 // changes fontsize of focused header links
 const navLinks = document.querySelectorAll('nav a');
 navLinks.forEach((anchor) => {
   anchor.addEventListener('focus', (e) => {
+    e.preventDefault();
     e.target.style.fontSize = '2.0rem';
   })
 });
